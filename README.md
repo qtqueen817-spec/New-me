@@ -1,5 +1,5 @@
 # My Learning Journey
-##Goals for this week
--[x] Create a repository
--[ ] Master **Markdown** formatting
--[ ] Write my first script
+## Goals for this week
+- [x] Create a repository
+- [ ] Master **Markdown** formatting
+- [ ] Write my first script
