@@ -2,4 +2,4 @@
 ## Goals for this week
 - [x] Create a repository
 - [ ] Master **Markdown** formatting
-- [ ] Write my first script
+- [x] Write my first script
