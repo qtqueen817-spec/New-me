@@ -1,3 +1,5 @@
-# New-me
-A space for my new projects as i learn what I'm doing
-Learn how to make a commit.
+# My Learning Journey
+##Goals for this week
+-[x] Create a repository
+-[ ] Master **Markdown** formatting
+-[ ] Write my first script
