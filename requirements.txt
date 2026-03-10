@@ -1,8 +1,9 @@
 fastapi
 uvicorn[standard]
 pydantic
-python-multipart
-# AI/ML Libraries
+# Machine Learning & Data
 numpy
 pandas
 scikit-learn
+# Optional: for later AI API calls
+httpx
