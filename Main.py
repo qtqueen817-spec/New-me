@@ -1,41 +1,20 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from typing import List, Optional
-
-app = FastAPI(title="Marketplace AI Backend")
-
-# Data Model for a Marketplace Item
-class Item(BaseModel):
-    id: Optional[int] = None
-    title: str
-    description: str
-    price: float
-    category: str
-
-# In-memory database for prototyping
-inventory = []
-
-@app.get("/")
-async def root():
-    return {"message": "Welcome to the Marketplace AI API"}
+@app.post("/items", response_model=Item)
+async def create_item(item: Item):
+    item.id = len(items_db) + 1
+    items_db.append(item)
+    return item
 
 @app.get("/items", response_model=List[Item])
-async def get_items():
-    return inventory
+async def list_items():
+    return items_db
 
-@app.post("/items")
-async def create_item(item: Item):
-    item.id = len(inventory) + 1
-    inventory.append(item)
-    return {"message": "Item listed successfully", "item": item}
-
-@app.post("/predict-price")
-async def predict_price(description: str):
-    # This is where your AI model logic will eventually live
-    # For now, we return a mock suggested price
-    suggested_price = len(description) * 0.5  # Mock logic
+@app.post("/ai/suggest-price")
+async def suggest_price(item_description: str):
+    # This is where you will later integrate a model like GPT or a regression model
+    # Current logic: Simple mock suggestion based on text length
+    suggested = len(item_description) * 1.25 
     return {
-        "description_analyzed": description,
-        "suggested_price": max(5.0, suggested_price),
+        "input_description": item_description,
+        "suggested_price": round(max(10.0, suggested), 2),
         "currency": "USD"
     }
