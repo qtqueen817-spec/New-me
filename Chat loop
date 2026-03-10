@@ -1,0 +1,18 @@
+print("--- AI Bestie Version 1.0 ---")
+name = input("First, what should I call you? ")
+
+while True:
+    user_input = input(f"{name}: ").lower()
+
+    # This allows you to quit the app
+    if user_input == "quit" or user_input == "exit":
+        print("AI Bestie: Bye! Talk to you later!")
+        break
+
+    # Simple logic-based responses (The "Pre-AI" phase)
+    if "how are you" in user_input:
+        print("AI Bestie: I'm doing great, now that you're here!")
+    elif "sad" in user_input:
+        print("AI Bestie: I'm sorry to hear that. Want to talk about it?")
+    else:
+        print("AI Bestie: That's interesting! Tell me more.")
